@@ -12,7 +12,7 @@ async function main() {
   console.log('DATABASE CONNECTED!')
 }
 
-const router = require('./routes/categorieRoute')
+const router = require('./routes/productRoute')
 
 
 
