@@ -2,8 +2,9 @@ const productModel = require("../models/productModel");
 
 const createProduct = (req, res) => {
   const newProduct = new productModel({
-    name: "Beatrice",
-    nationality: "Française",
+    name: "Pain tradition",
+    price: 20,
+    categories: "pain",
   });
   newProduct.save();
   res.send(newProduct);
@@ -13,8 +14,9 @@ const updateProduct = async (req, res) => {
   const id = req.params.Product_id;
   const updateData = {
     name: req.body.name,
-    nationality: req.body.nationality,
-  };
+    price: req.body.price,
+    categories: req.body.categories,
+    };
   try {
     const Product = await productModel.findOneAndUpdate({ _id: id }, updateData);
     res.send({ msg: "Product updated!", Product });
