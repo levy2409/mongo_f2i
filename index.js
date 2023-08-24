@@ -13,12 +13,15 @@ async function main() {
 }
 
 const router = require('./routes/productRoute')
-
+app.use(express.urlencoded({extended:false}))
+app.use(express.json())
 
 
 app.get('/', (req, res) =>{
   res.send('welcome to the exoress API')
 })
+
+app.use('/api/products', router)
 
 
 app.listen(port, ()=> console.log('listening on port '+port))
